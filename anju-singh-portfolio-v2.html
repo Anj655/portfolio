@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anju Singh – Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f2f5f7;--surface:#fff;--ink:#14202b;--muted:#53626f;--line:#d3dce3;--accent:#0b6b6b;--soft:#dcefee;--warn:#b4541a;--ok:#1d7a46;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10181f;--surface:#18232c;--ink:#e8eef2;--muted:#9fb0bc;--line:#2b3a46;--accent:#4fc3be;--soft:#17353a;--warn:#f08a4b;--ok:#5fd08a}}
+:root[data-theme="dark"]{--bg:#10181f;--surface:#18232c;--ink:#e8eef2;--muted:#9fb0bc;--line:#2b3a46;--accent:#4fc3be;--soft:#17353a;--warn:#f08a4b;--ok:#5fd08a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+.hero{padding:70px 0 40px}
+h1{font:600 clamp(2.8rem,9vw,5rem)/1 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:0 0 16px}
+h1 span{display:inline-block;opacity:0;transform:translateY(.5em);animation:up .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.lede{font-size:1.15rem;max-width:56ch;color:var(--muted);margin:0 0 20px;opacity:0;animation:up .8s .6s forwards}
+.contact{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none;font-weight:500;opacity:0;animation:up .8s .8s forwards}
+.chart{margin-top:32px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px 10px;opacity:0;animation:up .8s 1s forwards}
+svg{display:block;width:100%;height:auto}
+.cap{margin:6px 0 0;font-size:.8rem;color:var(--muted)}
+.draw{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
+.go .draw,.draw.on{animation:dr 2.6s ease-out forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.pulse{fill:var(--accent);opacity:0}
+.go .pulse{animation:pp 1.6s 2.5s infinite}
+@keyframes pp{0%{opacity:.8;r:5}100%{opacity:0;r:16}}
+section{padding:46px 0;border-top:1px solid var(--line)}
+h2{font:600 1.8rem/1.2 Newsreader,Georgia,serif;margin:0 0 24px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:26px;position:relative;overflow:hidden}
+.proj::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .9s .2s}
+.proj.in::before{transform:none}
+.status{display:inline-block;font-size:.8rem;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--soft);color:var(--accent);margin-bottom:10px}
+.status.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.2}}
+.proj h3{font:600 1.25rem/1.35 "Public Sans",sans-serif;margin:0 0 6px}
+.proj p{margin:0 0 14px;color:var(--muted)}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
+.stg{border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:.85rem;font-weight:500;transition:all .4s;position:relative}
+.stg small{display:block;color:var(--muted);font-weight:400;font-size:.76rem;line-height:1.35}
+.stg.act{border-color:var(--accent);background:var(--soft);transform:translateY(-3px)}
+.stg.act::after{content:"";position:absolute;left:0;bottom:0;height:3px;background:var(--accent);animation:fill 1.6s linear forwards}
+@keyframes fill{from{width:0}to{width:100%}}
+.alt{fill:none;stroke:var(--muted);stroke-width:1;opacity:0;vector-effect:non-scaling-stroke;transition:opacity .8s}
+.alts-on .alt{opacity:.4}
+.verdict{font-size:.85rem;font-weight:600;color:var(--ok);min-height:1.4em;opacity:0;transition:opacity .5s}
+.verdict.on{opacity:1}
+.ga{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0 8px}
+.cell{min-height:54px;border:1px solid var(--line);border-radius:6px;padding:4px;display:flex;flex-wrap:wrap;gap:3px;align-content:flex-start;transition:border-color .3s,background .3s}
+.cell.bad{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,transparent);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
+.chip{font-size:.68rem;font-weight:600;color:#fff;border-radius:4px;padding:0 5px;line-height:1.5;animation:pop .3s}
+@keyframes pop{from{transform:scale(.4)}}
+.gabar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.88rem}
+.gabar b{font-variant-numeric:tabular-nums}
+.gabar .bad{color:var(--warn)}.gabar .good{color:var(--ok)}
+button{font:600 .85rem "Public Sans",sans-serif;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:5px 14px;cursor:pointer;transition:background .2s}
+button:hover{background:var(--soft)}
+ul.pts{margin:16px 0 0;padding-left:20px}
+ul.pts li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{font-size:.82rem;border:1px solid var(--line);border-radius:4px;padding:1px 9px;color:var(--muted);transition:all .2s}
+.tags span:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+dl{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:14px 20px;margin:0}
+dt{font-weight:600}dd{margin:0;color:var(--muted)}
+.row{margin-bottom:16px}.row strong{display:block}.row span{color:var(--muted)}
+footer{padding:30px 0 46px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media (max-width:620px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:12px}.stages{grid-template-columns:1fr 1fr}.ga{gap:4px}.cell{min-height:46px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}h1 span,.lede,.contact,.chart,.rv{opacity:1;transform:none}.draw{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero go">
+  <h1 id="nm" aria-label="Anju Singh"></h1>
+  <p class="lede">B.Tech student in Information Technology (AI/ML) at Alliance University, Bengaluru. I build systems that test ideas against data: a quantitative research agent and a genetic-algorithm scheduler.</p>
+  <ul class="contact">
+    <li><a href="mailto:anju.singh55213@gmail.com">anju.singh55213@gmail.com</a></li>
+    <li><a href="tel:+917974355213">+91-7974355213</a></li>
+    <li>Bengaluru, India</li>
+  </ul>
+  <div class="chart" aria-hidden="true">
+    <svg id="hero" viewBox="0 0 800 140" preserveAspectRatio="none"></svg>
+    <p class="cap">Illustrative random walk generated in your browser. Not real strategy results.</p>
+  </div>
+</header>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <article class="proj rv" id="p1">
+    <span class="status live">In progress</span>
+    <h3>Large-Scale AI Quantitative Research Agent for Automated Strategy Discovery and Validation</h3>
+    <p>An LLM-powered agent that carries a financial hypothesis from idea to validated strategy. The animation below shows the loop it follows.</p>
+    <div class="stages" id="stages">
+      <div class="stg">Hypothesis<small>LLM ideates and researches</small></div>
+      <div class="stg">Strategy<small>Signals and features built</small></div>
+      <div class="stg">Backtest<small>Run on historical data</small></div>
+      <div class="stg">Validate<small>Test statistical robustness</small></div>
+    </div>
+    <svg id="bt" viewBox="0 0 800 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="verdict" id="vd">Robustness check: resampled runs stay close to the original path</div>
+    <p class="cap">Illustrative simulation, not real results.</p>
+    <ul class="pts">
+      <li>Converts financial hypotheses into testable trading strategies and evaluates them on historical market data.</li>
+      <li>Builds components for market-data processing, feature engineering, signal generation and statistical evaluation.</li>
+      <li>Applies probability, statistics and machine learning to measure performance and check robustness.</li>
+      <li>Runs compute-heavy AI/ML experiments on NVIDIA DGX H200 infrastructure.</li>
+    </ul>
+    <div class="tags"><span>Python</span><span>LLM agents</span><span>Backtesting</span><span>Feature engineering</span><span>Statistics</span><span>NVIDIA DGX H200</span></div>
+  </article>
+
+  <article class="proj rv" id="p2">
+    <span class="status">Completed</span>
+    <h3>Intelligent Timetable Management System</h3>
+    <p>A Python timetable generator backed by SQL academic data. This is a small live version of its genetic algorithm: 22 classes, 6 faculty, 3 rooms, 20 time slots. Red cells are clashes.</p>
+    <div class="ga" id="ga" aria-hidden="true"></div>
+    <div class="gabar"><span id="gs">Generation <b>0</b></span><button id="rp" type="button">Replay</button></div>
+    <ul class="pts">
+      <li>Implements chromosome representation, fitness evaluation, selection and crossover.</li>
+      <li>Handles constraints across courses, faculty, rooms, time slots and scheduling conflicts.</li>
+      <li>Based on a structured literature review of existing timetable-generation and scheduling approaches.</li>
+    </ul>
+    <div class="tags"><span>Python</span><span>SQL</span><span>Genetic algorithm</span><span>Constraint handling</span></div>
+  </article>
+</section>
+
+<section id="skills" class="rv">
+  <h2>Skills</h2>
+  <dl>
+    <dt>Programming</dt><dd>C++, Python, SQL</dd>
+    <dt>Computer science</dt><dd>Data structures and algorithms, DBMS, operating systems, computer networks, system design</dd>
+    <dt>AI / ML</dt><dd>Machine learning</dd>
+    <dt>Quantitative</dt><dd>Probability and statistics, stocks and equities, quantitative finance</dd>
+    <dt>Tools</dt><dd>Git, GitHub</dd>
+  </dl>
+</section>
+
+<section id="activities" class="rv">
+  <h2>Competitions and leadership</h2>
+  <div class="row"><strong>2026 ICPC Asia Chennai Preliminary Contest (online)</strong><span>Competed in a 3-member team and solved 2 problems in the 3-hour contest.</span></div>
+  <div class="row"><strong>Hackathon organizer</strong><span>Helped organize and run college hackathons, coordinating participants and supporting event operations.</span></div>
+</section>
+
+<section id="education" class="rv">
+  <h2>Education</h2>
+  <div class="row"><strong>B.Tech. in Information Technology, AI/ML specialization</strong><span>Alliance University, Bengaluru, 2024 to 2028. CGPA 7.7/10.</span></div>
+  <div class="row"><span>Coursework: Data Structures and Algorithms, DBMS, Operating Systems, Computer Networks, Theory of Computation.</span></div>
+</section>
+
+<footer>Get in touch: <a href="mailto:anju.singh55213@gmail.com">anju.singh55213@gmail.com</a></footer>
+</div>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var nm=document.getElementById('nm');
+"Anju Singh".split('').forEach(function(c,i){var s=document.createElement('span');s.textContent=c===' '?'\u00a0':c;s.style.animationDelay=(i*60)+'ms';s.setAttribute('aria-hidden','true');nm.appendChild(s)});
+
+function rng(s){return function(){s=(s*16807)%2147483647;return s/2147483647}}
+function walk(seed,n,drift,vol){var r=rng(seed),v=100,a=[];for(var i=0;i<n;i++){v+=(r()-.5+drift)*vol;a.push(v)}return a}
+function path(a,lo,hi,W,H){var p=8;return a.map(function(v,i){return(i?'L':'M')+(i/(a.length-1)*W).toFixed(1)+' '+(H-p-(v-lo)/(hi-lo)*(H-2*p)).toFixed(1)}).join(' ')}
+
+/* hero curve */
+var h=walk(7,120,.08,3.2),lo=Math.min.apply(null,h),hi=Math.max.apply(null,h);
+var last=h[h.length-1],ly=140-8-(last-lo)/(hi-lo)*124;
+document.getElementById('hero').innerHTML='<path class="draw" pathLength="1" d="'+path(h,lo,hi,800,140)+'"/><circle class="pulse" cx="800" cy="'+ly+'" r="5"/>';
+
+/* reveal on scroll + start showcases */
+var started={};
+function start(id){if(started[id])return;started[id]=1;if(id==='p1')runBT();if(id==='p2')runGA()}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');start(e.target.id);io.unobserve(e.target)}})},{threshold:.2});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+/* backtest pipeline */
+var stg=[].slice.call(document.querySelectorAll('.stg')),bt=document.getElementById('bt'),vd=document.getElementById('vd'),cycle=0,timer;
+function runBT(){
+  var seed=11+cycle*5,main=walk(seed,100,.1,3);
+  var alts=[1,2,3,4,5].map(function(k){return walk(seed*3+k,100,.1,3)});
+  var all=main.concat.apply(main,alts),L=Math.min.apply(null,all),H=Math.max.apply(null,all);
+  bt.classList.remove('alts-on');vd.classList.remove('on');
+  bt.innerHTML=alts.map(function(a){return'<path class="alt" d="'+path(a,L,H,800,150)+'"/>'}).join('')+'<path class="draw" pathLength="1" d="'+path(main,L,H,800,150)+'"/>';
+  stg.forEach(function(s){s.classList.remove('act')});
+  if(RM){stg.forEach(function(s){s.classList.add('act')});bt.classList.add('alts-on');vd.classList.add('on');return}
+  var i=0;
+  (function step(){
+    if(i>3){timer=setTimeout(function(){cycle++;runBT()},3600);return}
+    stg.forEach(function(s){s.classList.remove('act')});void stg[i].offsetWidth;stg[i].classList.add('act');
+    if(i===2){var d=bt.querySelector('.draw');d.getBoundingClientRect();d.classList.add('on')}
+    if(i===3){bt.classList.add('alts-on');vd.classList.add('on')}
+    i++;timer=setTimeout(step,1700);
+  })();
+}
+
+/* genetic algorithm */
+var NC=22,NF=6,NR=3,NS=20,POP=40,fac=[],ga=document.getElementById('ga'),gs=document.getElementById('gs'),gt;
+for(var i=0;i<NC;i++)fac.push(i%NF);
+function fit(c){var n=0;for(var i=0;i<NC;i++)for(var j=i+1;j<NC;j++){if(c[i]===c[j])n++;else if(((c[i]/NR)|0)===((c[j]/NR)|0)&&fac[i]===fac[j])n++}return n}
+function runGA(){
+  clearTimeout(gt);
+  var r=rng(42+(Math.random()*1000|0)),pop=[],g=0;
+  for(var i=0;i<POP;i++){var c=[];for(var k=0;k<NC;k++)c.push((r()*NS*NR)|0);pop.push(c)}
+  function best(){return pop.reduce(function(a,b){return fit(a)<=fit(b)?a:b})}
+  function show(b){
+    var f=fit(b),cells=[];for(var s=0;s<NS;s++)cells.push([]);
+    b.forEach(function(v,i){cells[(v/NR)|0].push(i)});
+    ga.innerHTML=cells.map(function(list){
+      var bad=list.some(function(a,x){return list.some(function(b2,y){return x<y&&(b[a]===b[b2]||fac[a]===fac[b2])})});
+      return'<div class="cell'+(bad?' bad':'')+'">'+list.map(function(i){return'<span class="chip" style="background:hsl('+(fac[i]*58)+' 55% 38%)">C'+(i+1)+'</span>'}).join('')+'</div>'}).join('');
+    gs.innerHTML='Generation <b>'+g+'</b> · '+(f?'<span class="bad"><b>'+f+'</b> clashes</span>':'<span class="good"><b>0</b> clashes. Feasible timetable found</span>');
+  }
+  function evolve(){
+    var next=[best()];
+    function pick(){var a=pop[(r()*POP)|0],b=pop[(r()*POP)|0];return fit(a)<fit(b)?a:b}
+    while(next.length<POP){var p=pick(),q=pick(),cut=(r()*NC)|0,c=p.slice(0,cut).concat(q.slice(cut));
+      if(r()<.35)c[(r()*NC)|0]=(r()*NS*NR)|0;next.push(c)}
+    pop=next;g++;
+  }
+  if(RM){while(fit(best())>0&&g<400)evolve();show(best());return}
+  show(best());
+  (function tick(){if(fit(best())===0)return;evolve();show(best());gt=setTimeout(tick,260)})();
+}
+document.getElementById('rp').addEventListener('click',runGA);
+})();
+</script>
+</body>
+</html>
